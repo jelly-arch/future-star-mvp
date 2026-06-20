@@ -6,7 +6,7 @@
 import Phaser from 'phaser';
 import { ProbabilityCalc } from './ProbabilityCalc';
 import { CommentaryGen } from './CommentaryGen';
-import { StateMachine, PlayerState } from './StateMachine';
+import { StateMachine } from './StateMachine';
 
 export interface MatchConfig {
   homeTeam: Team;
@@ -29,7 +29,6 @@ export interface MatchEvent {
 }
 
 export class MatchEngine extends Phaser.Events.EventEmitter {
-  private scene: Phaser.Scene;
   private config: MatchConfig;
   private tickTimer: number = 0;
   private currentTick: number = 0;
@@ -48,7 +47,6 @@ export class MatchEngine extends Phaser.Events.EventEmitter {
 
   constructor(scene: Phaser.Scene, config: MatchConfig) {
     super();
-    this.scene = scene;
     this.config = config;
     this.probabilityCalc = new ProbabilityCalc();
     this.commentaryGen = new CommentaryGen(scene.registry.get('commentary'));
@@ -138,7 +136,7 @@ export class MatchEngine extends Phaser.Events.EventEmitter {
   }
 
   private updatePlayerStates(situation: any): void {
-    this.stateMachines.forEach((sm, playerId) => {
+    this.stateMachines.forEach((sm) => {
       sm.update(situation);
     });
   }
@@ -178,7 +176,7 @@ export class MatchEngine extends Phaser.Events.EventEmitter {
     return types[Math.floor(Math.random() * types.length)];
   }
 
-  private simulatePass(situation: any): MatchEvent {
+  private simulatePass(_situation: any): MatchEvent {
     const passer = this.getRandomPlayer(this.possession);
     const success = this.probabilityCalc.calcPassSuccess(passer, null, [], 20) > Math.random() * 100;
 
@@ -193,7 +191,7 @@ export class MatchEngine extends Phaser.Events.EventEmitter {
     };
   }
 
-  private simulateDribble(situation: any): MatchEvent {
+  private simulateDribble(_situation: any): MatchEvent {
     const dribbler = this.getRandomPlayer(this.possession);
     const success = this.probabilityCalc.calcDribbleSuccess(dribbler, null) > Math.random() * 100;
 
@@ -208,7 +206,7 @@ export class MatchEngine extends Phaser.Events.EventEmitter {
     };
   }
 
-  private simulateShot(situation: any): MatchEvent {
+  private simulateShot(_situation: any): MatchEvent {
     const shooter = this.getRandomPlayer(this.possession);
     const success = this.probabilityCalc.calcShotSuccess(shooter, null, 20, 50) > Math.random() * 100;
 

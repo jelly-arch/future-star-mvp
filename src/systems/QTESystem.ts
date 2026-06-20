@@ -27,20 +27,17 @@ export class QTESystem extends Phaser.Events.EventEmitter {
   private scene: Phaser.Scene;
   private isActive: boolean = false;
   private config: QTEConfig | null = null;
-  private progress: number = 0;
   private timingBar: Phaser.GameObjects.Container | null = null;
   private indicator: Phaser.GameObjects.Rectangle | null = null;
-  private targetZone: Phaser.GameObjects.Rectangle | null = null;
 
   constructor(scene: Phaser.Scene) {
     super();
     this.scene = scene;
   }
 
-  start(type: string, difficulty: number, config: QTEConfig): void {
+  start(_type: string, _difficulty: number, config: QTEConfig): void {
     this.config = config;
     this.isActive = true;
-    this.progress = 0;
 
     this.createTimingBar();
     this.setupInput();
@@ -135,7 +132,7 @@ export class QTESystem extends Phaser.Events.EventEmitter {
     this.end(result.timing, result);
   }
 
-  private end(timing: 'perfect' | 'good' | 'miss', result?: QTEResult): void {
+  private end(_timing: 'perfect' | 'good' | 'miss', result?: QTEResult): void {
     this.isActive = false;
 
     if (this.timingBar) {

@@ -7,11 +7,9 @@ import Phaser from 'phaser';
 export class TacticalLog extends Phaser.GameObjects.Container {
   private entries: Phaser.GameObjects.Text[] = [];
   private maxEntries: number = 5;
-  private startY: number;
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
     super(scene, x, y);
-    this.startY = y;
 
     // 背景
     const bg = scene.add.rectangle(150, 60, 300, 150, 0x0a0f0d, 0.8);

@@ -15,6 +15,7 @@ export interface Player {
     strength?: number;
     shooting?: number;
     mental?: number;
+    goalkeeping?: number;
   };
 }
 
@@ -25,7 +26,7 @@ export class ProbabilityCalc {
    */
   calcPassSuccess(
     passer: Player | null,
-    receiver: Player | null,
+    _receiver: Player | null,
     defenders: Player[],
     distance: number
   ): number {

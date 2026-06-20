@@ -34,7 +34,7 @@ export class Ball extends Phaser.GameObjects.Container {
     this.holder = null;
   }
 
-  moveTo(x: number, y: number, duration: number = 200): void {
+  animateTo(x: number, y: number, duration: number = 200): void {
     this.scene.tweens.add({
       targets: this,
       x,

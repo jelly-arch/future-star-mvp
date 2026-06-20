@@ -5,13 +5,11 @@
 import Phaser from 'phaser';
 import { MatchEngine } from '../engine/MatchEngine';
 import { Player } from '../entities/Player';
-import { Ball } from '../entities/Ball';
 import { TacticalLog } from '../ui/TacticalLog';
 
 export class MatchScene extends Phaser.Scene {
   private matchEngine!: MatchEngine;
   private players: Player[] = [];
-  private ball!: Ball;
   private tacticalLog!: TacticalLog;
   private matchConfig: any;
   private isPaused: boolean = false;
@@ -23,7 +21,7 @@ export class MatchScene extends Phaser.Scene {
   }
 
   create(): void {
-    const { width, height } = this.cameras.main;
+    const { height } = this.cameras.main;
 
     // 获取配置
     this.matchConfig = {
@@ -41,9 +39,6 @@ export class MatchScene extends Phaser.Scene {
 
     // 创建球员实体
     this.createPlayers();
-
-    // 创建足球
-    this.ball = new Ball(this, width / 2, height / 2);
 
     // 创建战术日志
     this.tacticalLog = new TacticalLog(this, 20, height - 180);
@@ -195,7 +190,7 @@ export class MatchScene extends Phaser.Scene {
     }
   }
 
-  private showGoalAnimation(data: any): void {
+  private showGoalAnimation(_data: any): void {
     const { width, height } = this.cameras.main;
 
     const goalText = this.add.text(width / 2, height / 2, 'GOAL!', {
@@ -234,7 +229,7 @@ export class MatchScene extends Phaser.Scene {
     bg.on('pointerdown', callback);
   }
 
-  update(time: number, delta: number): void {
+  update(_time: number, delta: number): void {
     if (this.isPaused) return;
 
     this.matchEngine.update(delta);

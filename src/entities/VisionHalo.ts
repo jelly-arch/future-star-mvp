@@ -15,8 +15,8 @@ export class VisionHalo extends Phaser.GameObjects.Arc {
     scene.add.existing(this);
   }
 
-  setRadius(radius: number): void {
-    this.setRadius(radius);
+  updateRadius(radius: number): this {
+    return super.setRadius(radius);
   }
 
   pulse(): void {

@@ -13,11 +13,9 @@ export interface StateTransition {
 
 export class StateMachine {
   private currentState: PlayerState = 'idle';
-  private player: any;
   private transitions: StateTransition[] = [];
 
-  constructor(player: any) {
-    this.player = player;
+  constructor(_player: any) {
     this.initializeTransitions();
   }
 

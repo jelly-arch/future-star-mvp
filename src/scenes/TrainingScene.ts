@@ -11,7 +11,6 @@ export class TrainingScene extends Phaser.Scene {
   private trainingCards!: any[];
   private selectedCard: any = null;
   private attributePanel!: Phaser.GameObjects.Container;
-  private qteContainer!: Phaser.GameObjects.Container;
 
   constructor() {
     super({ key: 'TrainingScene' });
@@ -37,7 +36,6 @@ export class TrainingScene extends Phaser.Scene {
 
     // 初始化 QTE 系统
     this.qteSystem = new QTESystem(this);
-    this.qteContainer = this.add.container(width / 2, height / 2);
 
     // 显示训练卡列表
     this.displayTrainingCards();
@@ -109,7 +107,7 @@ export class TrainingScene extends Phaser.Scene {
   }
 
   private displayAttributePanel(): void {
-    const { width, height } = this.cameras.main;
+    const { width } = this.cameras.main;
     this.attributePanel = this.add.container(width - 220, 120);
 
     if (!this.currentPlayer) return;
