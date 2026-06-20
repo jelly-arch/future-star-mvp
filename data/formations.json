@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星阵型配置",
+  "formations": {
+    "futsal_1_2_1": {
+      "name": "1-2-1 菱形",
+      "playerCount": 4,
+      "positions": [
+        { "id": "GK", "name": "门将", "x": 0.1, "y": 0.5 },
+        { "id": "LB", "name": "左后卫", "x": 0.35, "y": 0.25 },
+        { "id": "RB", "name": "右后卫", "x": 0.35, "y": 0.75 },
+        { "id": "ST", "name": "前锋", "x": 0.65, "y": 0.5 }
+      ],
+      "description": "适合控球和渗透的阵型"
+    },
+    "futsal_2_1_1": {
+      "name": "2-1-1 防守型",
+      "playerCount": 4,
+      "positions": [
+        { "id": "GK", "name": "门将", "x": 0.1, "y": 0.5 },
+        { "id": "CB_L", "name": "左中卫", "x": 0.3, "y": 0.3 },
+        { "id": "CB_R", "name": "右中卫", "x": 0.3, "y": 0.7 },
+        { "id": "ST", "name": "前锋", "x": 0.6, "y": 0.5 }
+      ],
+      "description": "防守稳固，适合反击"
+    },
+    "five_v_five": {
+      "name": "5v5 标准",
+      "playerCount": 5,
+      "positions": [
+        { "id": "GK", "name": "门将", "x": 0.08, "y": 0.5 },
+        { "id": "LB", "name": "左后卫", "x": 0.3, "y": 0.2 },
+        { "id": "CB", "name": "中卫", "x": 0.3, "y": 0.5 },
+        { "id": "RB", "name": "右后卫", "x": 0.3, "y": 0.8 },
+        { "id": "ST", "name": "前锋", "x": 0.65, "y": 0.5 }
+      ],
+      "description": "5v5标准阵型，平衡攻防"
+    },
+    "five_v_five_with_free": {
+      "name": "5v5+1 自由人",
+      "playerCount": 6,
+      "positions": [
+        { "id": "GK", "name": "门将", "x": 0.08, "y": 0.5 },
+        { "id": "LB", "name": "左后卫", "x": 0.28, "y": 0.2 },
+        { "id": "CB", "name": "中卫", "x": 0.28, "y": 0.5 },
+        { "id": "RB", "name": "右后卫", "x": 0.28, "y": 0.8 },
+        { "id": "ST", "name": "前锋", "x": 0.65, "y": 0.5 },
+        { "id": "FREE", "name": "自由人", "x": 0.45, "y": 0.5, "freeRole": true }
+      ],
+      "description": "参考克洛普战术，自由人可自由跑位"
+    }
+  },
+  "tacticalStyles": {
+    "possession": {
+      "name": "控球渗透",
+      "description": "通过短传控制比赛节奏",
+      "modifiers": {
+        "passSuccessBonus": 5,
+        "shotSuccessBonus": -5
+      }
+    },
+    "counter_attack": {
+      "name": "防守反击",
+      "description": "快速转换进攻",
+      "modifiers": {
+        "passSuccessBonus": -5,
+        "shotSuccessBonus": 10
+      }
+    },
+    "high_press": {
+      "name": "高位逼抢",
+      "description": "在前场积极压迫",
+      "modifiers": {
+        "opponentDecisionTime": 0.7,
+        "staminaDrain": 1.3
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星文字解说模板配置",
+  "templates": [
+    {
+      "id": "tmpl_scan_success",
+      "trigger": "scan_success",
+      "condition": {
+        "vision": { "gt": 50 }
+      },
+      "text": "{player} 接球前完成了抬头扫描，他看到了左侧的空当。",
+      "color": "info",
+      "knowledgeRef": "kn_scan_001"
+    },
+    {
+      "id": "tmpl_pass_success",
+      "trigger": "pass_success",
+      "condition": {
+        "passDistance": { "lt": 15 }
+      },
+      "text": "{player} 将球稳稳传给了 {receiver}。",
+      "color": "success"
+    },
+    {
+      "id": "tmpl_pass_simple",
+      "trigger": "pass_success",
+      "condition": {},
+      "text": "{player} 传球给 {receiver}。",
+      "color": "default"
+    },
+    {
+      "id": "tmpl_pass_fail_technical",
+      "trigger": "pass_fail",
+      "condition": {
+        "failReason": "technical",
+        "shortPass": { "lt": 50 }
+      },
+      "text": "{player} 的传球力量太小，被 {defender} 轻松拦截。",
+      "color": "danger"
+    },
+    {
+      "id": "tmpl_pass_fail_cognitive",
+      "trigger": "pass_fail",
+      "condition": {
+        "failReason": "cognitive",
+        "vision": { "lt": 40 }
+      },
+      "text": "{player} 没有观察到身后的压迫！在逼抢下仓促出球，传球失误。",
+      "color": "danger",
+      "knowledgeRef": "kn_scan_001"
+    },
+    {
+      "id": "tmpl_dribble_success",
+      "trigger": "dribble_success",
+      "condition": {},
+      "text": "{player} 成功突破了 {defender}！",
+      "color": "success"
+    },
+    {
+      "id": "tmpl_dribble_agility",
+      "trigger": "dribble_success",
+      "condition": {
+        "strength": { "lt": 60 },
+        "coordination": { "gt": 70 }
+      },
+      "text": "{player} 没有选择硬碰硬，他用一次轻巧的变向晃过了 {defender}！",
+      "color": "success",
+      "knowledgeRef": "kn_dribble_001"
+    },
+    {
+      "id": "tmpl_dribble_fail",
+      "trigger": "dribble_fail",
+      "condition": {},
+      "text": "{player} 的突破被 {defender} 挡了下来。",
+      "color": "warning"
+    },
+    {
+      "id": "tmpl_goal",
+      "trigger": "shot_goal",
+      "condition": {},
+      "text": "前锋起脚射门——球进了！！！{player} 为球队建功！",
+      "color": "goal"
+    },
+    {
+      "id": "tmpl_goal_tactical",
+      "trigger": "shot_goal",
+      "condition": {
+        "previousEvent": "behind_defense"
+      },
+      "text": "前锋起脚射门——球进了！！！{team} 通过后场构建和打身后，完成了一次经典的破逼抢得分！",
+      "color": "goal"
+    },
+    {
+      "id": "tmpl_shot_save",
+      "trigger": "shot_save",
+      "condition": {},
+      "text": "{player} 的射门被门将扑出！",
+      "color": "warning"
+    },
+    {
+      "id": "tmpl_high_press",
+      "trigger": "high_press",
+      "condition": {},
+      "text": "{opponent} 实施了高位压迫！门将 {player} 必须快速出球。",
+      "color": "danger"
+    },
+    {
+      "id": "tmpl_behind_defense",
+      "trigger": "behind_defense",
+      "condition": {},
+      "text": "漂亮的穿透球！{team} 利用对手的高位防线，打穿了防守！",
+      "color": "success",
+      "knowledgeRef": "kn_third_man_001"
+    },
+    {
+      "id": "tmpl_local_advantage",
+      "trigger": "local_advantage",
+      "condition": {},
+      "text": "{team} 在中场形成了 {homeCount}打{awayCount} 的局部优势，正在寻找渗透路线。",
+      "color": "info"
+    },
+    {
+      "id": "tmpl_triangle_formed",
+      "trigger": "triangle_formed",
+      "condition": {},
+      "text": "{team} 形成了三角传球网络，传球成功率提升！",
+      "color": "info",
+      "knowledgeRef": "kn_edf_001"
+    }
+  ],
+  "colorClasses": {
+    "default": { "bg": "transparent", "text": "#e8f5e9" },
+    "info": { "bg": "rgba(0, 188, 212, 0.1)", "text": "#00bcd4" },
+    "success": { "bg": "rgba(0, 230, 118, 0.1)", "text": "#00e676" },
+    "warning": { "bg": "rgba(255, 213, 79, 0.1)", "text": "#ffd54f" },
+    "danger": { "bg": "rgba(244, 67, 54, 0.1)", "text": "#f44336" },
+    "goal": { "bg": "rgba(0, 230, 118, 0.2)", "text": "#00e676" }
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星球员属性配置",
+  "players": [
+    {
+      "id": "player_001",
+      "name": "里奥",
+      "age": 12,
+      "position": "GK",
+      "jerseyNumber": 1,
+      "attributes": {
+        "shortPass": 65,
+        "longPass": 55,
+        "vision": 35,
+        "decision": 55,
+        "dribbling": 40,
+        "coordination": 50,
+        "strength": 45,
+        "shooting": 30,
+        "mental": 60,
+        "goalkeeping": 70
+      },
+      "potential": {
+        "type": "late_bloomer",
+        "peakAge": 26,
+        "multiplier": 1.3
+      },
+      "unlockedKnowledge": ["kn_gk_001"],
+      "stats": {
+        "matches": 0,
+        "goals": 0,
+        "assists": 0,
+        "cleanSheets": 0
+      }
+    },
+    {
+      "id": "player_002",
+      "name": "马库斯",
+      "age": 13,
+      "position": "CB",
+      "jerseyNumber": 4,
+      "attributes": {
+        "shortPass": 60,
+        "longPass": 50,
+        "vision": 40,
+        "decision": 50,
+        "dribbling": 35,
+        "coordination": 45,
+        "strength": 65,
+        "shooting": 25,
+        "mental": 55,
+        "defending": 68
+      },
+      "potential": {
+        "type": "normal",
+        "peakAge": 24,
+        "multiplier": 1.0
+      },
+      "unlockedKnowledge": ["kn_def_001"],
+      "stats": {
+        "matches": 0,
+        "goals": 0,
+        "assists": 0,
+        "tackles": 0
+      }
+    },
+    {
+      "id": "player_003",
+      "name": "亚历克斯",
+      "age": 12,
+      "position": "CM",
+      "jerseyNumber": 8,
+      "attributes": {
+        "shortPass": 72,
+        "longPass": 60,
+        "vision": 55,
+        "decision": 60,
+        "dribbling": 58,
+        "coordination": 62,
+        "strength": 40,
+        "shooting": 45,
+        "mental": 50
+      },
+      "potential": {
+        "type": "early_bloomer",
+        "peakAge": 22,
+        "multiplier": 0.85
+      },
+      "unlockedKnowledge": ["kn_pass_001", "kn_vision_001"],
+      "stats": {
+        "matches": 0,
+        "goals": 0,
+        "assists": 0,
+        "passAccuracy": 0
+      }
+    },
+    {
+      "id": "player_004",
+      "name": "奥斯卡",
+      "age": 11,
+      "position": "CM",
+      "jerseyNumber": 10,
+      "attributes": {
+        "shortPass": 68,
+        "longPass": 55,
+        "vision": 62,
+        "decision": 55,
+        "dribbling": 65,
+        "coordination": 70,
+        "strength": 35,
+        "shooting": 50,
+        "mental": 45
+      },
+      "potential": {
+        "type": "late_bloomer",
+        "peakAge": 27,
+        "multiplier": 1.35
+      },
+      "unlockedKnowledge": ["kn_dribble_001"],
+      "stats": {
+        "matches": 0,
+        "goals": 0,
+        "assists": 0,
+        "dribbleSuccess": 0
+      }
+    },
+    {
+      "id": "player_005",
+      "name": "卢卡斯",
+      "age": 13,
+      "position": "ST",
+      "jerseyNumber": 9,
+      "attributes": {
+        "shortPass": 55,
+        "longPass": 40,
+        "vision": 45,
+        "decision": 50,
+        "dribbling": 60,
+        "coordination": 65,
+        "strength": 55,
+        "shooting": 72,
+        "mental": 48
+      },
+      "potential": {
+        "type": "normal",
+        "peakAge": 25,
+        "multiplier": 1.0
+      },
+      "unlockedKnowledge": ["kn_shoot_001"],
+      "stats": {
+        "matches": 0,
+        "goals": 0,
+        "assists": 0,
+        "shotAccuracy": 0
+      }
+    }
+  ],
+  "attributeDefinitions": {
+    "shortPass": {
+      "name": "短传精度",
+      "description": "短距离传球的准确性",
+      "range": [1, 99],
+      "growthRate": 0.5
+    },
+    "longPass": {
+      "name": "长传精度",
+      "description": "长距离传球的准确性",
+      "range": [1, 99],
+      "growthRate": 0.4
+    },
+    "vision": {
+      "name": "视野扫描",
+      "description": "接球前观察周围环境的能力",
+      "range": [1, 99],
+      "growthRate": 0.6
+    },
+    "decision": {
+      "name": "决策速度",
+      "description": "做出正确决策的速度",
+      "range": [1, 99],
+      "growthRate": 0.5
+    },
+    "dribbling": {
+      "name": "带球控球",
+      "description": "控球和带球突破的能力",
+      "range": [1, 99],
+      "growthRate": 0.5
+    },
+    "coordination": {
+      "name": "协调性",
+      "description": "身体协调与敏捷",
+      "range": [1, 99],
+      "growthRate": 0.4
+    },
+    "strength": {
+      "name": "力量",
+      "description": "身体对抗能力",
+      "range": [1, 99],
+      "growthRate": 0.3
+    },
+    "shooting": {
+      "name": "射门精度",
+      "description": "射门的准确性",
+      "range": [1, 99],
+      "growthRate": 0.5
+    },
+    "mental": {
+      "name": "心智",
+      "description": "心理素质与抗压能力",
+      "range": [1, 99],
+      "growthRate": 0.4
+    },
+    "defending": {
+      "name": "防守",
+      "description": "抢断和防守意识",
+      "range": [1, 99],
+      "growthRate": 0.5
+    },
+    "goalkeeping": {
+      "name": "门将技术",
+      "description": "扑救和门将专属技能",
+      "range": [1, 99],
+      "growthRate": 0.5
+    }
+  },
+  "potentialTypes": {
+    "early_bloomer": {
+      "name": "早熟型",
+      "description": "早期成长快，但潜力上限较低",
+      "peakAgeRange": [20, 23],
+      "growthMultiplier": 1.2,
+      "potentialCap": 0.85
+    },
+    "normal": {
+      "name": "普通型",
+      "description": "稳定成长，标准潜力",
+      "peakAgeRange": [24, 26],
+      "growthMultiplier": 1.0,
+      "potentialCap": 1.0
+    },
+    "late_bloomer": {
+      "name": "晚熟型",
+      "description": "早期成长慢，但潜力上限高",
+      "peakAgeRange": [26, 30],
+      "growthMultiplier": 0.7,
+      "potentialCap": 1.3
+    }
+  }
+}

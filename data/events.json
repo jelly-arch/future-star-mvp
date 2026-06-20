@@ -1,0 +1,179 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星比赛事件池配置",
+  "events": [
+    {
+      "id": "event_pass_success",
+      "type": "pass",
+      "name": "传球成功",
+      "triggerConditions": {
+        "passSuccess": true
+      },
+      "effects": {
+        "possession": "maintain",
+        "ballPosition": "update"
+      },
+      "commentaryTriggers": ["tmpl_pass_success", "tmpl_pass_simple"]
+    },
+    {
+      "id": "event_pass_fail_technical",
+      "type": "pass",
+      "name": "传球失误（技术原因）",
+      "triggerConditions": {
+        "passSuccess": false,
+        "failReason": "technical"
+      },
+      "effects": {
+        "possession": "turnover",
+        "ballPosition": "random_nearby"
+      },
+      "commentaryTriggers": ["tmpl_pass_fail_technical"]
+    },
+    {
+      "id": "event_pass_fail_cognitive",
+      "type": "pass",
+      "name": "传球失误（认知原因）",
+      "triggerConditions": {
+        "passSuccess": false,
+        "failReason": "cognitive",
+        "visionAttribute": { "lt": 40 }
+      },
+      "effects": {
+        "possession": "turnover",
+        "ballPosition": "intercepted"
+      },
+      "commentaryTriggers": ["tmpl_pass_fail_cognitive"]
+    },
+    {
+      "id": "event_scan_success",
+      "type": "cognitive",
+      "name": "接球前扫描成功",
+      "triggerConditions": {
+        "visionAttribute": { "gt": 50 },
+        "defenderDistance": { "gt": 3 }
+      },
+      "effects": {
+        "decisionBonus": 10,
+        "passSuccessBonus": 5
+      },
+      "commentaryTriggers": ["tmpl_scan_success"]
+    },
+    {
+      "id": "event_dribble_success",
+      "type": "dribble",
+      "name": "过人成功",
+      "triggerConditions": {
+        "dribbleSuccess": true
+      },
+      "effects": {
+        "possession": "maintain",
+        "defenderStun": 1.0
+      },
+      "commentaryTriggers": ["tmpl_dribble_success", "tmpl_dribble_agility"]
+    },
+    {
+      "id": "event_dribble_fail",
+      "type": "dribble",
+      "name": "过人失败",
+      "triggerConditions": {
+        "dribbleSuccess": false
+      },
+      "effects": {
+        "possession": "turnover",
+        "playerStun": 0.5
+      },
+      "commentaryTriggers": ["tmpl_dribble_fail"]
+    },
+    {
+      "id": "event_shot_goal",
+      "type": "shot",
+      "name": "进球",
+      "triggerConditions": {
+        "shotSuccess": true
+      },
+      "effects": {
+        "score": "increment",
+        "possession": "kickoff"
+      },
+      "commentaryTriggers": ["tmpl_goal", "tmpl_goal_tactical"]
+    },
+    {
+      "id": "event_shot_save",
+      "type": "shot",
+      "name": "射门被扑救",
+      "triggerConditions": {
+        "shotSuccess": false,
+        "goalkeeperSave": true
+      },
+      "effects": {
+        "possession": "goalkeeper",
+        "cornerKick": "possible"
+      },
+      "commentaryTriggers": ["tmpl_shot_save"]
+    },
+    {
+      "id": "event_high_press",
+      "type": "tactical",
+      "name": "高位逼抢",
+      "triggerConditions": {
+        "defenderCount": { "gt": 2 },
+        "zone": "zone_1"
+      },
+      "effects": {
+        "pressureLevel": "high",
+        "decisionTimeMultiplier": 0.7
+      },
+      "commentaryTriggers": ["tmpl_high_press"]
+    },
+    {
+      "id": "event_behind_defense",
+      "type": "tactical",
+      "name": "打穿防线身后",
+      "triggerConditions": {
+        "passType": "through_ball",
+        "defenderLine": "high"
+      },
+      "effects": {
+        "attackerAdvantage": true,
+        "shotSuccessBonus": 15
+      },
+      "commentaryTriggers": ["tmpl_behind_defense"]
+    },
+    {
+      "id": "event_local_advantage",
+      "type": "tactical",
+      "name": "局部人数优势",
+      "triggerConditions": {
+        "zonePlayerCount": {
+          "home": { "gt": 2 },
+          "away": { "lt": 2 }
+        }
+      },
+      "effects": {
+        "passSuccessBonus": 10
+      },
+      "commentaryTriggers": ["tmpl_local_advantage"]
+    },
+    {
+      "id": "event_triangle_formed",
+      "type": "tactical",
+      "name": "三角传球网形成",
+      "triggerConditions": {
+        "trianglePlayers": 3,
+        "knowledgeUnlocked": "kn_edf_001"
+      },
+      "effects": {
+        "passSuccessBonus": 10,
+        "decisionBonus": 5
+      },
+      "commentaryTriggers": ["tmpl_triangle_formed"]
+    }
+  ],
+  "eventTypes": {
+    "pass": { "priority": 1, "color": "#00e676" },
+    "dribble": { "priority": 2, "color": "#00bcd4" },
+    "shot": { "priority": 3, "color": "#ffd54f" },
+    "cognitive": { "priority": 0, "color": "#ce93d8" },
+    "tactical": { "priority": 0, "color": "#ff7043" }
+  }
+}

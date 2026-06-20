@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星场地区域配置",
+  "pitch": {
+    "width": 800,
+    "height": 500,
+    "goalWidth": 60,
+    "goalDepth": 20,
+    "penaltyAreaWidth": 200,
+    "penaltyAreaDepth": 80
+  },
+  "zones": {
+    "zone_1": {
+      "id": "zone_1",
+      "name": "防守三区",
+      "nameEn": "Defensive Third",
+      "xRange": [0, 0.33],
+      "description": "本方防守区域，门将和后卫活动区域",
+      "tacticalImplications": {
+        "passSuccessModifier": -5,
+        "pressureLevel": "high_when_opponent_possession"
+      }
+    },
+    "zone_2": {
+      "id": "zone_2",
+      "name": "中场区域",
+      "nameEn": "Middle Third",
+      "xRange": [0.33, 0.66],
+      "description": "中场争夺区域，组织进攻的关键区域",
+      "tacticalImplications": {
+        "passSuccessModifier": 0,
+        "pressureLevel": "medium"
+      }
+    },
+    "zone_3": {
+      "id": "zone_3",
+      "name": "进攻三区",
+      "nameEn": "Attacking Third",
+      "xRange": [0.66, 1.0],
+      "description": "对方防守区域，射门和传中的关键区域",
+      "tacticalImplications": {
+        "passSuccessModifier": -10,
+        "shotSuccessModifier": 10,
+        "pressureLevel": "high"
+      }
+    }
+  },
+  "hotspots": [
+    {
+      "id": "hotspot_gk_distribution",
+      "name": "门将出球点",
+      "position": { "x": 0.12, "y": 0.5 },
+      "radius": 30,
+      "description": "门将出球的关键区域"
+    },
+    {
+      "id": "hotspot_half_space_left",
+      "name": "左半空间",
+      "position": { "x": 0.45, "y": 0.35 },
+      "radius": 40,
+      "description": "中路与边路之间的进攻通道"
+    },
+    {
+      "id": "hotspot_half_space_right",
+      "name": "右半空间",
+      "position": { "x": 0.45, "y": 0.65 },
+      "radius": 40,
+      "description": "中路与边路之间的进攻通道"
+    },
+    {
+      "id": "hotspot_penalty_spot",
+      "name": "点球点",
+      "position": { "x": 0.85, "y": 0.5 },
+      "radius": 20,
+      "description": "射门黄金区域"
+    }
+  ],
+  "visionHaloConfig": {
+    "baseRadius": 80,
+    "attributeMultiplier": 1.5,
+    "maxRadius": 200,
+    "minRadius": 40,
+    "color": "rgba(0, 230, 118, 0.15)",
+    "borderColor": "rgba(0, 230, 118, 0.4)"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星知识图谱配置",
+  "nodes": [
+    {
+      "id": "kn_scan_001",
+      "name": "接球前扫描",
+      "category": "cognitive",
+      "description": "在接球前观察周围环境，识别队友位置和防守者压力",
+      "relatedAttribute": "vision",
+      "difficulty": 1,
+      "prerequisites": [],
+      "unlocks": ["kn_pass_001", "kn_third_man_001"],
+      "trainingCard": "card_scan_01",
+      "theory": "参考《冈田训练法》：接球前0.5秒完成扫描，可提升决策质量30%"
+    },
+    {
+      "id": "kn_pass_001",
+      "name": "短传基础",
+      "category": "technical",
+      "description": "掌握短距离传球的基本技术",
+      "relatedAttribute": "shortPass",
+      "difficulty": 1,
+      "prerequisites": [],
+      "unlocks": ["kn_edf_001", "kn_pass_002"],
+      "trainingCard": "card_pass_01"
+    },
+    {
+      "id": "kn_dribble_001",
+      "name": "敏捷变向",
+      "category": "technical",
+      "description": "利用身体协调性进行快速变向突破",
+      "relatedAttribute": "coordination",
+      "difficulty": 1,
+      "prerequisites": [],
+      "unlocks": ["kn_1v1_001"],
+      "trainingCard": "card_dribble_01",
+      "theory": "晚熟者修正：力量<60但协调性>70时，强制采用敏捷对抗"
+    },
+    {
+      "id": "kn_shoot_001",
+      "name": "射门基础",
+      "category": "technical",
+      "description": "掌握射门的基本技术",
+      "relatedAttribute": "shooting",
+      "difficulty": 1,
+      "prerequisites": [],
+      "unlocks": ["kn_shoot_002"],
+      "trainingCard": "card_shoot_01"
+    },
+    {
+      "id": "kn_edf_001",
+      "name": "三角传球网（EDF）",
+      "category": "tactical",
+      "description": "形成三角传球网络，提升传球成功率",
+      "relatedAttribute": "vision",
+      "difficulty": 2,
+      "prerequisites": ["kn_scan_001", "kn_pass_001"],
+      "unlocks": ["kn_third_man_001"],
+      "trainingCard": "card_pass_02",
+      "theory": "参考《巴萨DNA》：形成EDF时，传球成功率额外+10%"
+    },
+    {
+      "id": "kn_1v1_001",
+      "name": "1v1对抗决策",
+      "category": "tactical",
+      "description": "在1对1情况下做出正确决策",
+      "relatedAttribute": "decision",
+      "difficulty": 2,
+      "prerequisites": ["kn_dribble_001"],
+      "unlocks": ["kn_1v1_002"],
+      "trainingCard": "card_dribble_02"
+    },
+    {
+      "id": "kn_third_man_001",
+      "name": "第三人跑位",
+      "category": "tactical",
+      "description": "识别并利用第三人跑位创造进攻机会",
+      "relatedAttribute": "vision",
+      "difficulty": 3,
+      "prerequisites": ["kn_scan_001", "kn_edf_001"],
+      "unlocks": ["kn_combination_001"],
+      "trainingCard": "card_third_man_01",
+      "theory": "参考APFC《THIRD_MAN》：第三人跑位是打破防守平衡的关键"
+    },
+    {
+      "id": "kn_def_001",
+      "name": "防守站位基础",
+      "category": "defensive",
+      "description": "掌握基本的防守站位和压迫时机",
+      "relatedAttribute": "defending",
+      "difficulty": 1,
+      "prerequisites": [],
+      "unlocks": ["kn_press_001"],
+      "theory": "参考《克洛普战术》：高位压迫需要整体协作"
+    },
+    {
+      "id": "kn_gk_001",
+      "name": "门将出球基础",
+      "category": "goalkeeping",
+      "description": "门将在压迫下的出球决策",
+      "relatedAttribute": "shortPass",
+      "difficulty": 1,
+      "prerequisites": [],
+      "unlocks": ["kn_gk_002"],
+      "theory": "参考《克洛普80种进攻战术》：门将出球是破高位逼抢的第一环"
+    }
+  ],
+  "categories": {
+    "cognitive": {
+      "name": "认知能力",
+      "color": "#ce93d8",
+      "description": "足球认知与决策能力"
+    },
+    "technical": {
+      "name": "技术能力",
+      "color": "#00e676",
+      "description": "基础足球技术"
+    },
+    "tactical": {
+      "name": "战术理解",
+      "color": "#ffd54f",
+      "description": "战术意识与团队配合"
+    },
+    "defensive": {
+      "name": "防守能力",
+      "color": "#ff7043",
+      "description": "防守技术与意识"
+    },
+    "goalkeeping": {
+      "name": "门将专属",
+      "color": "#00bcd4",
+      "description": "门将专属技能"
+    }
+  },
+  "edges": [
+    { "from": "kn_scan_001", "to": "kn_edf_001", "type": "prerequisite" },
+    { "from": "kn_pass_001", "to": "kn_edf_001", "type": "prerequisite" },
+    { "from": "kn_scan_001", "to": "kn_third_man_001", "type": "prerequisite" },
+    { "from": "kn_edf_001", "to": "kn_third_man_001", "type": "prerequisite" },
+    { "from": "kn_dribble_001", "to": "kn_1v1_001", "type": "prerequisite" },
+    { "from": "kn_scan_001", "to": "kn_pass_001", "type": "related" },
+    { "from": "kn_edf_001", "to": "kn_third_man_001", "type": "related" }
+  ]
+}

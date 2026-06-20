@@ -1,0 +1,221 @@
+{
+  "version": "1.0.0",
+  "description": "未来之星训练卡配置",
+  "cards": [
+    {
+      "id": "card_scan_01",
+      "name": "接球前扫描",
+      "type": "cognitive",
+      "category": "vision",
+      "difficulty": 1,
+      "targetAttribute": "vision",
+      "qteType": "scan",
+      "knowledgeRef": "kn_scan_001",
+      "description": "训练在接球前观察周围环境的能力",
+      "reward": {
+        "attributeGain": 2,
+        "knowledgeUnlock": true,
+        "expGain": 10
+      },
+      "qteConfig": {
+        "duration": 3000,
+        "timingWindows": {
+          "perfect": { "range": [0.4, 0.6], "multiplier": 1.5 },
+          "good": { "range": [0.25, 0.75], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "radar_sweep"
+      },
+      "unlocked": true
+    },
+    {
+      "id": "card_pass_01",
+      "name": "短传精度训练",
+      "type": "technical",
+      "category": "passing",
+      "difficulty": 1,
+      "targetAttribute": "shortPass",
+      "qteType": "pass",
+      "knowledgeRef": "kn_pass_001",
+      "description": "提升短距离传球的准确性",
+      "reward": {
+        "attributeGain": 2,
+        "knowledgeUnlock": true,
+        "expGain": 10
+      },
+      "qteConfig": {
+        "duration": 2500,
+        "timingWindows": {
+          "perfect": { "range": [0.45, 0.55], "multiplier": 1.5 },
+          "good": { "range": [0.3, 0.7], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "power_bar"
+      },
+      "unlocked": true
+    },
+    {
+      "id": "card_pass_02",
+      "name": "三角传球网（EDF）",
+      "type": "tactical",
+      "category": "passing",
+      "difficulty": 2,
+      "targetAttribute": "vision",
+      "secondaryAttributes": ["shortPass", "decision"],
+      "qteType": "triangle_pass",
+      "knowledgeRef": "kn_edf_001",
+      "description": "训练形成三角传球网络的能力",
+      "prerequisite": "card_pass_01",
+      "reward": {
+        "attributeGain": 3,
+        "knowledgeUnlock": true,
+        "expGain": 20
+      },
+      "qteConfig": {
+        "duration": 4000,
+        "timingWindows": {
+          "perfect": { "range": [0.35, 0.65], "multiplier": 1.5 },
+          "good": { "range": [0.2, 0.8], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "triangle_formation",
+        "sequenceLength": 3
+      },
+      "unlocked": false
+    },
+    {
+      "id": "card_dribble_01",
+      "name": "敏捷变向",
+      "type": "technical",
+      "category": "dribbling",
+      "difficulty": 1,
+      "targetAttribute": "coordination",
+      "secondaryAttributes": ["dribbling"],
+      "qteType": "dribble",
+      "knowledgeRef": "kn_dribble_001",
+      "description": "训练快速变向突破的能力",
+      "reward": {
+        "attributeGain": 2,
+        "knowledgeUnlock": true,
+        "expGain": 10
+      },
+      "qteConfig": {
+        "duration": 2000,
+        "timingWindows": {
+          "perfect": { "range": [0.4, 0.6], "multiplier": 1.5 },
+          "good": { "range": [0.25, 0.75], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "direction_arrow",
+        "inputType": "directional"
+      },
+      "unlocked": true
+    },
+    {
+      "id": "card_dribble_02",
+      "name": "1v1 对抗",
+      "type": "tactical",
+      "category": "dribbling",
+      "difficulty": 2,
+      "targetAttribute": "dribbling",
+      "secondaryAttributes": ["coordination", "mental"],
+      "qteType": "one_v_one",
+      "knowledgeRef": "kn_1v1_001",
+      "description": "训练1对1突破的决策与执行",
+      "prerequisite": "card_dribble_01",
+      "reward": {
+        "attributeGain": 3,
+        "knowledgeUnlock": true,
+        "expGain": 20
+      },
+      "qteConfig": {
+        "duration": 3000,
+        "timingWindows": {
+          "perfect": { "range": [0.35, 0.65], "multiplier": 1.5 },
+          "good": { "range": [0.2, 0.8], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "defender_approach",
+        "decisionTree": true
+      },
+      "unlocked": false
+    },
+    {
+      "id": "card_shoot_01",
+      "name": "射门精度",
+      "type": "technical",
+      "category": "shooting",
+      "difficulty": 1,
+      "targetAttribute": "shooting",
+      "qteType": "shoot",
+      "knowledgeRef": "kn_shoot_001",
+      "description": "提升射门准确性",
+      "reward": {
+        "attributeGain": 2,
+        "knowledgeUnlock": true,
+        "expGain": 10
+      },
+      "qteConfig": {
+        "duration": 2500,
+        "timingWindows": {
+          "perfect": { "range": [0.45, 0.55], "multiplier": 1.5 },
+          "good": { "range": [0.3, 0.7], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "target_zone"
+      },
+      "unlocked": true
+    },
+    {
+      "id": "card_third_man_01",
+      "name": "第三人跑位",
+      "type": "tactical",
+      "category": "vision",
+      "difficulty": 3,
+      "targetAttribute": "vision",
+      "secondaryAttributes": ["decision", "shortPass"],
+      "qteType": "third_man",
+      "knowledgeRef": "kn_third_man_001",
+      "description": "训练识别并利用第三人跑位的能力",
+      "prerequisites": ["card_scan_01", "card_pass_01"],
+      "reward": {
+        "attributeGain": 4,
+        "knowledgeUnlock": true,
+        "expGain": 30
+      },
+      "qteConfig": {
+        "duration": 5000,
+        "timingWindows": {
+          "perfect": { "range": [0.4, 0.6], "multiplier": 1.5 },
+          "good": { "range": [0.25, 0.75], "multiplier": 1.0 },
+          "miss": { "range": [0, 1], "multiplier": 0.5 }
+        },
+        "visualCue": "player_positions",
+        "sequenceLength": 2
+      },
+      "unlocked": false
+    }
+  ],
+  "cardTypes": {
+    "cognitive": {
+      "name": "认知训练",
+      "description": "提升球员的足球认知能力",
+      "color": "#00bcd4"
+    },
+    "technical": {
+      "name": "技术训练",
+      "description": "提升球员的基础技术能力",
+      "color": "#00e676"
+    },
+    "tactical": {
+      "name": "战术训练",
+      "description": "提升球员的战术理解能力",
+      "color": "#ffd54f"
+    }
+  },
+  "difficultyLevels": {
+    "1": { "name": "基础", "qteSpeedMultiplier": 1.0 },
+    "2": { "name": "进阶", "qteSpeedMultiplier": 1.3 },
+    "3": { "name": "高级", "qteSpeedMultiplier": 1.6 }
+  }
+}
