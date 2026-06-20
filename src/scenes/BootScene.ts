@@ -58,15 +58,15 @@ export class BootScene extends Phaser.Scene {
   }
 
   private loadResources(): void {
-    // 加载 JSON 数据配置
-    this.load.json('players', '../future-star-mvp-data/players.json');
-    this.load.json('trainingCards', '../future-star-mvp-data/training-cards.json');
-    this.load.json('events', '../future-star-mvp-data/events.json');
-    this.load.json('commentary', '../future-star-mvp-data/commentary-templates.json');
-    this.load.json('knowledgeGraph', '../future-star-mvp-data/knowledge-graph.json');
-    this.load.json('formations', '../future-star-mvp-data/formations.json');
-    this.load.json('zones', '../future-star-mvp-data/zones.json');
-    this.load.json('progression', '../future-star-mvp-data/progression.json');
+    // 加载 JSON 数据配置（使用相对路径，与构建后的文件在同一目录）
+    this.load.json('players', 'data/players.json');
+    this.load.json('trainingCards', 'data/training-cards.json');
+    this.load.json('events', 'data/events.json');
+    this.load.json('commentary', 'data/commentary-templates.json');
+    this.load.json('knowledgeGraph', 'data/knowledge-graph.json');
+    this.load.json('formations', 'data/formations.json');
+    this.load.json('zones', 'data/zones.json');
+    this.load.json('progression', 'data/progression.json');
 
     // 加载图片资源（占位符，实际项目中替换为真实资源）
     // this.load.image('pitch', 'assets/images/pitch.png');
